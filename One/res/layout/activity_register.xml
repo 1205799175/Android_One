@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="@drawable/third_party_login_bg_mobile">
+    
+    <!-- 返回图标 -->
+   <LinearLayout 
+       android:layout_width="match_parent"
+       android:layout_height="@dimen/length" 
+       android:layout_weight="0.8">
+       <ImageButton 
+           android:id="@+id/imagebutton"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginLeft="@dimen/imagebutton_marginleft"
+           android:layout_marginTop="@dimen/imagebutton_marginleft"
+           android:background="@drawable/return_button"
+           android:onClick="imageClick"/>
+       <TextView 
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="@string/register"
+           android:textSize="@dimen/r_textsize"
+           android:paddingLeft="@dimen/textview_paddingleft"
+           android:paddingTop="@dimen/textview_paddingtop"/>
+   </LinearLayout>
+     
+   <!-- logo -->
+   <LinearLayout 
+       android:layout_width="match_parent"
+       android:layout_height="@dimen/length"
+       android:layout_weight="2.2">
+       <ImageView 
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:src="@drawable/third_party_one_logo"
+           android:layout_gravity="center"/>
+   </LinearLayout>
+   
+   <!-- 输入手机号码框 -->
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="@dimen/length"
+       android:layout_weight="1"
+       android:layout_margin="@dimen/margin"
+       android:background="@drawable/border">
+       <ImageView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginLeft="@dimen/imageview_marginleft"
+           android:layout_marginTop="@dimen/imageview_marginleft"
+           android:src="@drawable/user_default_icon" />
+       <EditText
+           android:id="@+id/edit_register_phone"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:hint="@string/phonenumber" 
+           android:inputType="number" 
+           android:maxLength="11"
+           android:layout_marginTop="@dimen/edit_margintop"
+           android:layout_marginLeft="@dimen/edit_marginleft"
+           android:background="@null"/>
+   </LinearLayout>
+
+   <!-- 输入验证码框 -->
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="@dimen/length"
+       android:layout_weight="1"
+       android:layout_margin="@dimen/margin"
+       android:background="@drawable/border">
+       <ImageView 
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:src="@drawable/user_default_icon"
+           android:layout_marginLeft="@dimen/imageview_marginleft"
+           android:layout_marginTop="@dimen/imageview_marginleft"/>
+       <EditText 
+           android:id="@+id/edit_register_code"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:hint="@string/test"
+           android:maxLength="10"
+           android:layout_marginTop="@dimen/edit_margintop"
+           android:layout_marginLeft="@dimen/edit_marginleft"
+           android:background="@null"/>
+       <TextView 
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="发送短信验证码"
+           android:textSize="@dimen/l_textsize"
+           android:layout_marginTop="@dimen/textview_margintop"
+           android:layout_marginLeft="@dimen/textview_marginleft"/>
+   </LinearLayout>
+   
+   <!-- 下一步 -->
+   <LinearLayout 
+       android:layout_width="match_parent"
+       android:layout_height="@dimen/length"
+       android:layout_weight="1"
+       android:layout_margin="@dimen/margin">
+       <Button 
+           android:id="@+id/btn_next"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="@string/nextstep"
+           android:background="@android:color/holo_blue_light"
+           android:onClick="btn_nextClick"/>
+   </LinearLayout>
+  
+   <LinearLayout 
+       android:layout_width="match_parent"
+       android:layout_height="@dimen/length"
+       android:layout_weight="3.7">
+   </LinearLayout>
+
+</LinearLayout>

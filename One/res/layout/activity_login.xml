@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="@drawable/third_party_login_bg_mobile">
+    
+    <!-- 返回图标 -->
+   <LinearLayout 
+       android:layout_width="match_parent"
+       android:layout_height="@dimen/length" 
+       android:layout_weight="0.8">
+       <ImageButton 
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginLeft="@dimen/imagebutton_marginleft"
+           android:layout_marginTop="@dimen/imagebutton_marginleft"
+           android:background="@drawable/return_button"/>
+   </LinearLayout>
+     
+   <!-- logo -->
+   <LinearLayout 
+       android:layout_width="match_parent"
+       android:layout_height="@dimen/length"
+       android:layout_weight="2.2">
+       <ImageView 
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:src="@drawable/third_party_one_logo"
+           android:layout_gravity="center"/>
+   </LinearLayout>
+   
+   <!-- 输入用户名框 -->
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="@dimen/length"
+       android:layout_weight="1"
+       android:layout_margin="@dimen/margin"
+       android:background="@drawable/border">
+       <ImageView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginLeft="@dimen/imageview_marginleft"
+           android:layout_marginTop="@dimen/imageview_marginleft"
+           android:src="@drawable/user_default_icon" />
+       <EditText
+           android:id="@+id/edit_login_username"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:hint="@string/username" 
+           android:inputType="number"
+           android:maxLength="11"
+           android:layout_marginTop="@dimen/edit_margintop"
+           android:layout_marginLeft="@dimen/edit_marginleft"
+           android:background="@null"/>
+   </LinearLayout>
+
+   <!-- 输入密码框 -->
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="@dimen/length"
+       android:layout_weight="1"
+       android:layout_margin="@dimen/margin"
+       android:background="@drawable/border" >
+       <ImageView 
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:src="@drawable/user_default_icon"
+           android:layout_marginLeft="@dimen/imageview_marginleft"
+           android:layout_marginTop="@dimen/imageview_marginleft"/>
+       <EditText 
+           android:id="@+id/edit_login_password"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:hint="@string/password"
+           android:maxLength="10"
+           android:layout_marginTop="@dimen/edit_margintop"
+           android:layout_marginLeft="@dimen/edit_marginleft"
+           android:background="@null"
+           android:password="true"/>
+   </LinearLayout>
+   
+   <!-- 登录按钮 -->
+   <LinearLayout 
+       android:layout_width="match_parent"
+       android:layout_height="@dimen/length"
+       android:layout_weight="1"
+       android:layout_margin="@dimen/margin">
+       <Button 
+           android:id="@+id/btn"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="@string/login"
+           android:background="@android:color/holo_blue_light"/>
+   </LinearLayout>
+   
+   <!--新用户注册  -->
+   <LinearLayout 
+       android:layout_width="match_parent"
+       android:layout_height="@dimen/length"
+       android:layout_weight="0.7"
+       android:gravity="right">
+       <TextView 
+           android:id="@+id/text_view"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="@string/register_new"
+           android:textSize="@dimen/l_textsize"
+           android:background="@null"
+           android:layout_marginRight="@dimen/button_marginright"
+           android:onClick="btuonClick"/>
+   </LinearLayout>
+   
+   <LinearLayout 
+       android:layout_width="match_parent"
+       android:layout_height="@dimen/length"
+       android:layout_weight="3">
+   </LinearLayout>
+   
+</LinearLayout>
