@@ -1,149 +1,111 @@
 package com.lanou3g.one;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
 
-public class MainActivity extends Activity implements OnClickListener{
-
-	private Button btn;
-	private final String APPTAG = "One";
-	private final String TAG = "MainActivity";
-	private EditText edit_login_username;
-	private EditText edit_login_password;
-	private TextView text_view;
+public class MainActivity extends FragmentActivity{
+	
+	private Button button_home, button_question, button_content, button_details, button_stow;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_login);
-		Log.d(APPTAG, TAG + ".onCreate");
-		//控件绑定 登录界面
+		setContentView(R.layout.activity_main);
 		initView();
-		//为视图控件添加监听事件----方式一
-		addTarget();
-		
-		//登录按钮  吐司
-		btn = (Button) findViewById(R.id.btn);
-		btn.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				Toast tst = Toast.makeText(MainActivity.this, "登录成功", Toast.LENGTH_SHORT);
-				tst.show();
+		addListener();
+		FragmentManageMethod();
+	}
+	
+	private void FragmentManageMethod() {
+		//创建碎片管理者对象
+		FragmentManager fm = getSupportFragmentManager();
+		//创建业务对象
+		FragmentTransaction ft = fm.beginTransaction();
+		//添加Fragment对象
+		//参数一代表呆添加的位置,参数二为添加的碎片对象
+		ft.add(R.id.content1, new Fragment_One());
+		button_home.setSelected(true);
+		//提交业务
+		ft.commit();
+	}
+
+	private class MYListener implements OnClickListener {
+		@Override
+		public void onClick(View v) {
+			// TODO Auto-generated method stub
+			FragmentManager fm = getSupportFragmentManager();
+			FragmentTransaction ft = fm.beginTransaction();
+			switch (v.getId()) {
+			case R.id.button_home:
+				button_home.setSelected(true);
+				button_content.setSelected(false);
+				button_question.setSelected(false);
+				button_stow.setSelected(false);
+				button_details.setSelected(false);
+				ft.replace(R.id.content1, new Fragment_One());
+				break;
+			case R.id.button_content:
+				button_home.setSelected(false);
+				button_content.setSelected(true);
+				button_question.setSelected(false);
+				button_stow.setSelected(false);
+				button_details.setSelected(false);
+				ft.replace(R.id.content1, new Fragment_Two());
+				break;
+			case R.id.button_question:
+				button_home.setSelected(false);
+				button_content.setSelected(false);
+				button_question.setSelected(true);
+				button_stow.setSelected(false);
+				button_details.setSelected(false);
+				ft.replace(R.id.content1, new Fragment_Three());
+				break;
+			case R.id.button_stow:
+				button_home.setSelected(false);
+				button_content.setSelected(false);
+				button_question.setSelected(false);
+				button_stow.setSelected(true);
+				button_details.setSelected(false);
+				ft.replace(R.id.content1, new Fragment_Four());
+				break;
+			case R.id.button_details:
+				button_home.setSelected(false);
+				button_content.setSelected(false);
+				button_question.setSelected(false);
+				button_stow.setSelected(false);
+				button_details.setSelected(true);
+				ft.replace(R.id.content1, new Fragment_Five());
+				break;
+			default:
+				break;
 			}
-		});	
+			ft.commit();
+		}
+		
 	}
-	//接口方法  点击事件
-	private void addTarget() {
+	
+	private void addListener() {
 		// TODO Auto-generated method stub
-		text_view.setOnClickListener(this);
+		MYListener l = new MYListener();
+		button_home.setOnClickListener(l);
+		button_content.setOnClickListener(l);
+		button_details.setOnClickListener(l);
+		button_question.setOnClickListener(l);
+		button_stow.setOnClickListener(l);
 	}
-	//控件初始化,绑定
+
+
 	private void initView() {
-		edit_login_username = (EditText) findViewById(R.id.edit_login_username);
-		edit_login_password = (EditText) findViewById(R.id.edit_login_password);
-		text_view = (TextView) findViewById(R.id.text_view);
+		button_home = (Button) findViewById(R.id.button_home);
+		button_content = (Button) findViewById(R.id.button_content);
+		button_details = (Button) findViewById(R.id.button_details);
+		button_question = (Button) findViewById(R.id.button_question);
+		button_stow = (Button) findViewById(R.id.button_stow);
 	}
-
-	//为了获得后面传回来的值,复写此方法
-	@Override
-	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//		 TODO Auto-generated method stub
-		super.onActivityResult(requestCode, resultCode, data);
-		if (resultCode == 200) {
-//			获得意图对象的值
-			String str1 = data.getStringExtra("返回key1");
-			String str2 = data.getStringExtra("返回key2");
-//			将数值显示在框中
-			edit_login_username.setText(str1);
-			edit_login_password.setText(str2);
-		}	
-	}
-	
-	//新用户注册   注释掉的为从登录界面向注册界面返回的值
-//	public void btuonClick(View v) {
-//		//获得输入框中的文本
-//		String str1 = edit_login_username.getText().toString();
-//		String str2 = edit_login_password.getText().toString();
-//		//创建意图对象
-//		Intent intent = new Intent(MainActivity.this, SecondActivity.class);
-//		//将需要传递的数放入到意图对象中
-//		intent.putExtra("key1", str1);
-//		intent.putExtra("key2", str2);
-//		//根据意图对象启动Activity
-//		startActivityForResult(intent, 100);
-//	}
-	
-	@Override
-	public void onClick(View v) {
-		// TODO Auto-generated method stub
-		//获得输入框中的文本
-		String str1 = edit_login_username.getText().toString();
-		String str2 = edit_login_password.getText().toString();
-		//创建意图对象
-		Intent intent = new Intent(MainActivity.this, SecondActivity.class);
-		//将需要传递的数放入到意图对象中
-		intent.putExtra("key1", str1);
-		intent.putExtra("key2", str2);
-		//根据意图对象启动Activity
-		startActivityForResult(intent, 100);
-	}
-	
-	@Override
-	protected void onStart() {
-		// TODO Auto-generated method stub
-		super.onStart();
-		Log.d(APPTAG, TAG + ".onStart");
-	}
-	
-	@Override
-	protected void onResume() {
-		// TODO Auto-generated method stub
-		super.onResume();
-		Log.d(APPTAG, TAG + ".onResume");
-	}
-	
-	@Override
-	protected void onPause() {
-		// TODO Auto-generated method stub
-		super.onPause();
-		Log.d(APPTAG, TAG + ".onPause");
-	}
-	
-	@Override
-	protected void onStop() {
-		// TODO Auto-generated method stub
-		super.onStop();
-		Log.d(APPTAG, TAG + ".onStop");
-	}
-	
-	@Override
-	protected void onRestart() {
-		// TODO Auto-generated method stub
-		super.onRestart();
-		Log.d(APPTAG, TAG + ".onRestart");
-	}
-	
-	@Override
-	protected void onDestroy() {
-		// TODO Auto-generated method stub
-		super.onDestroy();
-		Log.d(APPTAG, TAG + ".onDestroy");
-	}
-	
-	@Override
-	protected void onNewIntent(Intent intent) {
-		// TODO Auto-generated method stub
-		super.onNewIntent(intent);
-	}
-
-	
 }

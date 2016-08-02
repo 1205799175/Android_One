@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
-public class SecondActivity extends Activity implements OnClickListener{
+public class RegisterActivity extends Activity implements OnClickListener{
 
 	private final String APPTAG = "One";
 	private final String TAG = "SecondActivity";
@@ -89,7 +89,7 @@ public class SecondActivity extends Activity implements OnClickListener{
 			finish();	
 			break;
 		case R.id.imagebutton:
-			Intent intent2 = new Intent(SecondActivity.this, MainActivity.class);
+			Intent intent2 = new Intent(RegisterActivity.this, LoginActivity.class);
 			startActivityForResult(intent2, 100);
 		default:
 			break;

@@ -36,28 +36,63 @@ public final class R {
     }
     public static final class drawable {
         public static final int border=0x7f020000;
-        public static final int ic_launcher=0x7f020001;
-        public static final int icon=0x7f020002;
-        public static final int return_button=0x7f020003;
-        public static final int third_party_login_bg_mobile=0x7f020004;
-        public static final int third_party_one_logo=0x7f020005;
-        public static final int user_default_icon=0x7f020006;
+        public static final int content_bg=0x7f020001;
+        public static final int details_bg=0x7f020002;
+        public static final int home_bg=0x7f020003;
+        public static final int ic_launcher=0x7f020004;
+        public static final int icon=0x7f020005;
+        public static final int mobile_one_content_page_button=0x7f020006;
+        public static final int mobile_one_content_page_press_down=0x7f020007;
+        public static final int mobile_one_details_page_button=0x7f020008;
+        public static final int mobile_one_details_page_press_down=0x7f020009;
+        public static final int mobile_one_home_page_button=0x7f02000a;
+        public static final int mobile_one_home_page_press_down=0x7f02000b;
+        public static final int mobile_one_question_page_button=0x7f02000c;
+        public static final int mobile_one_question_page_press_down=0x7f02000d;
+        public static final int mobile_one_stow_page_button=0x7f02000e;
+        public static final int mobile_one_stow_page_press_down=0x7f02000f;
+        public static final int one_title=0x7f020010;
+        public static final int question_bg=0x7f020011;
+        public static final int return_button=0x7f020012;
+        public static final int start_app_bg_icon=0x7f020013;
+        public static final int stow_bg=0x7f020014;
+        public static final int third_party_login_bg_mobile=0x7f020015;
+        public static final int third_party_one_logo=0x7f020016;
+        public static final int user_default_icon=0x7f020017;
     }
     public static final class id {
-        public static final int action_settings=0x7f080008;
+        public static final int action_settings=0x7f080014;
+        public static final int app_image=0x7f08000e;
         public static final int btn=0x7f080002;
-        public static final int btn_next=0x7f080007;
+        public static final int btn_next=0x7f08000d;
+        public static final int button_content=0x7f080006;
+        public static final int button_details=0x7f080009;
+        public static final int button_home=0x7f080005;
+        public static final int button_question=0x7f080007;
+        public static final int button_stow=0x7f080008;
+        public static final int content1=0x7f080004;
         public static final int edit_login_password=0x7f080001;
         public static final int edit_login_username=0x7f080000;
-        public static final int edit_register_code=0x7f080006;
-        public static final int edit_register_phone=0x7f080005;
-        public static final int imagebutton=0x7f080004;
+        public static final int edit_register_code=0x7f08000c;
+        public static final int edit_register_phone=0x7f08000b;
+        public static final int imagebutton=0x7f08000a;
         public static final int text_view=0x7f080003;
+        public static final int tv_1=0x7f080011;
+        public static final int tv_2=0x7f080013;
+        public static final int tv_3=0x7f080012;
+        public static final int tv_4=0x7f080010;
+        public static final int tv_5=0x7f08000f;
     }
     public static final class layout {
         public static final int activity_login=0x7f030000;
         public static final int activity_main=0x7f030001;
         public static final int activity_register=0x7f030002;
+        public static final int activity_welcome=0x7f030003;
+        public static final int fragment_five=0x7f030004;
+        public static final int fragment_four=0x7f030005;
+        public static final int fragment_one=0x7f030006;
+        public static final int fragment_three=0x7f030007;
+        public static final int fragment_two=0x7f030008;
     }
     public static final class menu {
         public static final int main=0x7f070000;
